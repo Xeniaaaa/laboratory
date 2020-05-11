@@ -34,4 +34,12 @@ class Sensors extends Controller
         $resp = (string)$res->getBody();
         return response()->json(["data"=> $resp]);
     }
+
+    public function speed(Request $request, $value){
+        $data = $request->all();
+        $client = new \GuzzleHttp\Client();
+        $res = $client->request('GET', 'http://82.137.162.129:1722?ms='.$value);
+        $resp = (string)$res->getBody();
+        return response()->json(["data"=> $resp]);
+    }
 }

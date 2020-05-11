@@ -18,4 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/OnOff', 'Sensors@OnOff');
+Route::get('/speed/{value}', 'Sensors@speed');
 Route::get('/data', 'Sensors@get');
