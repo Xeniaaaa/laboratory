@@ -11,6 +11,30 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+
 Route::get('/', function () {
-    return view('home');
+    // return view('home');
+    // return view('login');
+    if(Auth::check('web')){
+        return view('home');
+    }else{
+       return redirect('/login');
+    }
 });
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::get('/admin',  function () {
+    // return view('home');
+    return view('adminpanel.main');
+});
+Route::prefix('/admin', function(){
+
+});
+

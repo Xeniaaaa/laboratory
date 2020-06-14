@@ -26,6 +26,10 @@ Vue.component('apexchart', VueApexCharts)
 // Install BootstrapVue
 Vue.use(BootstrapVue);
 Vue.component('example-component', require('./components/HomeComponent.vue').default);
+Vue.component('login-component', require('./components/LoginComponent.vue').default);
+Vue.component('admin-panel-component', require('./components/admin/AdminComponent1.vue').default);
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

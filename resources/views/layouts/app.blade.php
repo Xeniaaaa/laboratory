@@ -1,4 +1,4 @@
-  
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -31,8 +31,23 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                @if(Auth::check('web'))
+                <a href="/">Главная</a>
+                @if(Auth::check('web') && Auth::guard('web')->user()->isAdmin == 1)
+                <a href="/admin">Редактирование базы данных</a>
+                @endif
 
-                
+                <span>
+                    Привет {{Auth::guard('web')->user()->name}} !
+                </span>
+
+                <a href="javascript:void" onclick="$('#logout-form').submit();">
+                    Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                @endif
             </div>
         </nav>
 
