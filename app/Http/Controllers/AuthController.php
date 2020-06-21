@@ -21,7 +21,7 @@ class AuthController extends Controller
 
         if (Auth::attempt(['ulogin' => $login, 'password' => $password])) {
             // Аутентификация прошла успешно
-            return redirect()->intended('dashboard');
+            return redirect('/admin');
         }
     }
 }
