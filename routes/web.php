@@ -17,7 +17,7 @@ Route::get('/', function () {
     // return view('home');
     // return view('login');
     if(Auth::check('web')){
-        return redirect('/admin');
+        return view('adminpanel.main');
     }else{
        return redirect('/login');
     }
